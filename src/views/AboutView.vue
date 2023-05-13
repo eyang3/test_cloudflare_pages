@@ -1,7 +1,8 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <main>
+    <h1>This is an about page Has more data I want to know where this wraps</h1>
+    <ui-button>Hello</ui-button>
+  </main>
 </template>
 
 <style>

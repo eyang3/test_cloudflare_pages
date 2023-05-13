@@ -29,7 +29,29 @@ a,
 
   #app {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas: "head head" "nav  main" "nav  foot";
     padding: 0 2rem;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  header {
+    grid-area: head;
+  }
+
+  nav {
+    grid-area: nav;
+    width: 1000px;
+  }
+
+  main {
+    grid-area: main;
+    height: 60vh;
+
+  }
+
+  footer {
+    grid-area: foot;
   }
 }

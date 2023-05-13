@@ -12,10 +12,13 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "balm-ui": "^10.19.0",
     "vue": "^3.2.47",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
+    "@clerk/types": "^3.36.0",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/node": "^18.14.2",
     "@vitejs/plugin-vue": "^4.0.0",
