@@ -9,7 +9,7 @@ export default createStore({
     mutations: {
         loadUser(state, data: UserData) {
             state.user = data;
-        }
+        },
     },
     actions: {
 

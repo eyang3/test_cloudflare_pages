@@ -1,14 +1,28 @@
 <template>
-    <main>
+    <main style="margin: 30px">
         <img :src="imgURL" width="100" />
-        <div id="auth-links" v-if="!hasUser">
-            <a href="javascript:void(0)" onclick="Clerk.openSignUp()">Sign Up</a> |
-            <a href="javascript:void(0)" onclick="Clerk.openSignIn()">Sign In</a>
+        <div>
+            <RouterLink to="/" class="mdc-button" v-ripple>Feed</RouterLink>
+            <br>
+            <RouterLink to="/post" class="mdc-button" v-ripple>Post</RouterLink>
+            <br>
+            <RouterLink to="/about" class="mdc-button" v-ripple>Settings</RouterLink>
+            <hr>
+            <div id="auth-links" v-if="!hasUser">
+                <a href="javascript:void(0)" class="mdc-button" v-on:click="signUp">Sign Up</a>
+                <br>
+                <a href="javascript:void(0)" class="mdc-button" onclick="Clerk.openSignIn()">Sign In</a>
+            </div>
+            <div id="sign-out" v-if="hasUser">
+                <a class="mdc-button" v-on:click="logout()">Sign Out</a>
+
+            </div>
         </div>
     </main>
 </template>
   
 <script lang="ts">
+import { CREATE_BLOCK } from '@vue/compiler-core';
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -16,6 +30,22 @@ export default defineComponent({
     props: {
         name: String,
         msg: { type: String, required: true }
+    },
+    methods: {
+        logout: async function () {
+            await Clerk.signOut();
+            window.location.reload();
+        },
+        signUp: function () {
+            var host = window.location.protocol + "//" + window.location.host;
+            console.log(`${host}/?boo=1`);
+            console.log(Clerk);
+            Clerk.openSignUp({
+                afterSignInUrl: "http://127.0.0.1:5173/?boo=1",
+                oauth_callback: "http://127.0.0.1:5173/?boo=1",
+                "oauth-native-callback": "http://127.0.0.1:5173/?boo=1"
+            });
+        }
     },
     data() {
         return {
@@ -40,6 +70,7 @@ export default defineComponent({
         // your page. 
         const script = document.createElement('script');
         script.setAttribute('data-clerk-frontend-api', frontend_api);
+        script.setAttribute('oauth-native-callback', "http://127.0.0.1:5173/?boo=1");
         script.async = true;
         script.src = `https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js`;
         script.crossOrigin = "anonymous";
@@ -49,7 +80,6 @@ export default defineComponent({
             await window.Clerk.load({
                 // Set load options here...
             });
-
             if (Clerk.user) {
                 // Mount user button component
                 self.$store.commit('loadUser', Clerk.user);
@@ -72,6 +102,11 @@ export default defineComponent({
         display: flex;
         align-items: center;
     }
+}
+
+hr {
+    margin-right: 20px;
+
 }
 </style>
   
