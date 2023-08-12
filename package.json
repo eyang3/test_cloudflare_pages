@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@clerk/clerk-js": "^4.52.1",
+    "axios": "^1.4.0",
     "balm-ui": "^10.19.0",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6",

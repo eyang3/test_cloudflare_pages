@@ -24,6 +24,7 @@
 <script lang="ts">
 import { CREATE_BLOCK } from '@vue/compiler-core';
 import { defineComponent } from 'vue'
+// var Clerk: any;
 
 export default defineComponent({
     // type inference enabled
@@ -38,8 +39,6 @@ export default defineComponent({
         },
         signUp: function () {
             var host = window.location.protocol + "//" + window.location.host;
-            console.log(`${host}/?boo=1`);
-            console.log(Clerk);
             Clerk.openSignUp({
                 afterSignInUrl: "http://127.0.0.1:5173/?boo=1",
                 oauth_callback: "http://127.0.0.1:5173/?boo=1",
@@ -81,10 +80,26 @@ export default defineComponent({
                 // Set load options here...
             });
             if (Clerk.user) {
-                // Mount user button component
+                console.log(Clerk.user);
                 self.$store.commit('loadUser', Clerk.user);
+                // if the time between creation and now is less than 2 seconds consider it a new user
+                // if (Clerk.user.createdAt - Date.now() < 2000) {
+                let payload = {
+                    userid: Clerk.user.id,
+                    userimg: Clerk.user.imageUrl,
+                    username: Clerk.user.fullName
+                };
+                let response = await fetch("/api/?action=login", {
+                    method: 'POST',
+                    body: JSON.stringify(payload),
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8"
+                    }
+                })
+                console.log(response);
+
+                // }
             } else {
-                console.log("Nothing Here");
                 self.firstLoad = false;
             }
         });
