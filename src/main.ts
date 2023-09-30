@@ -12,8 +12,7 @@ import './assets/main.css'
 import * as dotenv from "dotenv";
 //does this keep?
 const app = createApp(App)
-console.log(process.env);
-app.config.globalProperties.root_api = process.env.ROOT_API || "/api"
+app.config.globalProperties.root_api = import.meta.env.VITE_ROOT_API || "/api"
 
 let host = window.location.host;
 if (host.indexOf('localhost') || host.indexOf('127.0.0.1')) {
