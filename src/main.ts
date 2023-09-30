@@ -10,7 +10,9 @@ import button from 'balm-ui/components/button';
 // import BalmUIPlus from 'balm-ui-plus'; // BalmJS Team Material Components
 import './assets/main.css'
 
+
 const app = createApp(App)
+app.config.globalProperties.$root_api = process.env.ROOT_API || "/api"
 
 let host = window.location.host;
 if (host.indexOf('localhost') || host.indexOf('127.0.0.1')) {

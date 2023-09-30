@@ -22,7 +22,7 @@
   "devDependencies": {
     "@clerk/types": "^3.36.0",
     "@rushstack/eslint-patch": "^1.2.0",
-    "@types/node": "^18.14.2",
+    "@types/node": "^18.18.1",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/eslint-config-prettier": "^7.1.0",
     "@vue/eslint-config-typescript": "^11.0.2",
