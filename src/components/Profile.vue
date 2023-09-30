@@ -89,7 +89,7 @@ export default defineComponent({
                     userimg: Clerk.user.imageUrl,
                     username: Clerk.user.fullName
                 };
-                console.log(self.$root)
+                console.log(self.root_api)
                 let response = await fetch(`${self.root_api}/?action=login`, {
                     method: 'POST',
                     body: JSON.stringify(payload),
