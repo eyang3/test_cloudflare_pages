@@ -9,7 +9,7 @@ import button from 'balm-ui/components/button';
 // import BalmUI from 'balm-ui'; // Official Google Material Components
 // import BalmUIPlus from 'balm-ui-plus'; // BalmJS Team Material Components
 import './assets/main.css'
-import 'dotenv'
+import * as dotenv from "dotenv";
 
 const app = createApp(App)
 app.config.globalProperties.root_api = process.env.ROOT_API || "/api"
