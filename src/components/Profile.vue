@@ -97,9 +97,7 @@ export default defineComponent({
                         "Content-type": "application/json; charset=UTF-8"
                     }
                 })
-                console.log(response);
-
-                // }
+                self.$store.commit('set_auth', response.headers.get("Authorization"))
             } else {
                 self.firstLoad = false;
             }
