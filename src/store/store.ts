@@ -21,7 +21,7 @@ export default createStore({
     },
     getters: {
         get_token(state) {
-            return Stati
+            return state.auth;
         }
 
     }

@@ -4,6 +4,7 @@ import router from './router'
 import store from './store/store'
 import UiEditor from 'balm-ui/components/editor';
 import button from 'balm-ui/components/button';
+import UiTextfieldComponents from 'balm-ui/components/textfield';
 
 
 // import BalmUI from 'balm-ui'; // Official Google Material Components
@@ -24,5 +25,6 @@ app.use(router);
 app.use(UiEditor);
 app.use(button);
 app.use(store);
+app.use(UiTextfieldComponents);
 
 app.mount('#app')

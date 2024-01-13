@@ -1,0 +1,1 @@
+import{_ as t,r as o,o as a,c as n,a as s,w as _,b as c,d as r}from"./index-af0c3629.js";const l={},u=c("h1",null,"This is an about page Has more data I want to know where this wraps",-1);function i(d,p){const e=o("ui-button");return a(),n("main",null,[u,s(e,null,{default:_(()=>[r("Hello")]),_:1})])}const w=t(l,[["render",i]]);export{w as default};
