@@ -32,7 +32,7 @@ export default defineComponent({
             let token = this.$store.getters.get_token;
             let response = await fetch(`${self.root_api}/?action=post`, {
                 method: 'POST',
-                body: JSON.stringify({ "content": this.content }),
+                body: JSON.stringify({ "content": this.content, "title": this.title }),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",
                     'Authorization': `Bearer ${token}`,
