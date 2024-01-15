@@ -39,6 +39,7 @@ export default defineComponent({
                 }
 
             });
+            console.log(response);
         }
     }
 })
@@ -93,11 +94,7 @@ export default defineComponent({
     border-bottom-right-radius: 3px;
 }
 
->>>:focus {
-    outline: 0 !important;
-    background-color: white;
 
-}
 
 
 #mdc-editor {
